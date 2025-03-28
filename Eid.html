@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eid ul Fitr Greetings</title>
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-image: url('Mosque.png');
+            background-size: cover;
+            background-position: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 60px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 1.2s ease-out;
+            position: relative;
+            z-index: 2;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .greeting {
+            font-size: 3.5em;
+            color: #293241;
+            margin-bottom: 30px;
+            animation: pulse 2.2s infinite alternate;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        @keyframes pulse {
+            from { transform: scale(1); }
+            to { transform: scale(1.03); }
+        }
+
+        .message {
+            font-size: 1.4em;
+            color: #3d5a80;
+            margin-bottom: 40px;
+            display: none;
+            line-height: 1.6;
+            padding: 20px;
+            border: 2px solid #98c1d9;
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-height: 50vh; /* Responsive max height */
+            overflow-y: auto; /* Enable vertical scrolling */
+            white-space: pre-line; /* Respect line breaks */
+        }
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .click-button {
+            padding: 20px 40px;
+            font-size: 1.2em;
+            background-color: #ee6c4d;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s ease, background-color 0.3s ease; /* Add transform transition */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+        .click-button:hover {
+            background-color: #e05634;
+            transform: translateY(-2px);
+        }
+        .click-button.expanded {
+          transform: scale(1.1); /* Expand the button */
+        }
+
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 40px;
+            }
+            .greeting {
+                font-size: 2.8em;
+            }
+            .message {
+                font-size: 1.2em;
+            }
+        }
+
+        /* Stars and Lights */
+        .star {
+            position: absolute;
+            background-color: white;
+            border-radius: 50%;
+            box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+            animation: twinkle 2s infinite ease-in-out;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.8; transform: scale(1); }
+            50% { opacity: 0.3; transform: scale(1.2); }
+        }
+
+        .light {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            box-shadow: 0 0 10px white, 0 0 20px yellow;
+            animation: flicker 1.5s infinite ease-in-out;
+        }
+
+        @keyframes flicker {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 0.3; }
+        }
+
+        /* Star and Light Positions */
+        .star1 { top: 10%; left: 15%; width: 10px; height: 10px; }
+        .star2 { top: 25%; right: 20%; width: 12px; height: 12px; }
+        .star3 { bottom: 15%; left: 30%; width: 9px; height: 9px; }
+        .light1 { top: 5%; left: 10%; }
+        .light2 { top: 5%; left: 20%; }
+        .light3 { top: 5%; left: 30%; }
+        .light4 { top: 5%; left: 40%;}
+        .light5 { top: 5%; left: 50%;}
+        .light6 { top: 5%; left: 60%;}
+        .light7 { top: 5%; left: 70%;}
+        .light8 { top: 5%; left: 80%;}
+        .light9 { top: 5%; left: 90%;}
+
+        /* Fireworks */
+        .fireworks {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .firework {
+            position: absolute;
+            width: 5px;
+            height: 20px;
+            border-radius: 2px;
+            animation: firework-launch 1s ease-out forwards, firework-explode 0.8s ease-out forwards 1s;
+        }
+
+        @keyframes firework-launch {
+            0% { transform: translateY(100vh); opacity: 1; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes firework-explode {
+            0% { transform: scale(1); opacity: 1; }
+            100% {
+                transform: scale(15);
+                opacity: 0;
+                border-radius: 50%;
+                width: 20px;
+                height: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="fireworks" id="fireworks"></div>
+    <div class="star star1"></div>
+    <div class="star star2"></div>
+    <div class="star star3"></div>
+    <div class="light light1"></div>
+    <div class="light light2"></div>
+    <div class="light light3"></div>
+    <div class="light light4"></div>
+    <div class="light light5"></div>
+    <div class="light light6"></div>
+    <div class="light light7"></div>
+    <div class="light light8"></div>
+    <div class="light light9"></div>
+    <div class="container">
+        <div class="greeting">Eid Mubarak!</div>
+        <div class="message" id="eidMessage"></div>
+        <button class="click-button" id="showButton">Click for a special wish!</button>
+        <audio id="eidMusic" src="EID.mp3" preload="auto"></audio>
+        <audio id="backgroundMusic" src="background_music.mp3" preload="auto" loop></audio>
+  
+    </div>
+    <script>
+        const showButton = document.getElementById('showButton');
+        const eidMessage = document.getElementById('eidMessage');
+        const eidMusic = document.getElementById('eidMusic');
+        let buttonExpanded = false;
+        const fullWish = `May this blessed occasion of Eid ul Fitr fill your life with happiness, peace, and prosperity. May Allah shower His countless blessings upon you and your family, and may your homes be filled with joy, laughter, and the warmth of togetherness. As we celebrate the end of Ramadan, may our hearts be filled with gratitude and compassion, and may we strive to spread love and kindness to all. Wishing you a truly joyous and memorable Eid, filled with abundant blessings and the fulfillment of all your heartfelt prayers. Eid Mubarak from JS, Amexa, and the Developer to the entire JS Community and Amexa Account holders!`;
+
+        function typeWriter(text, i, fnCallback) {
+            if (i < (text.length)) {
+                eidMessage.innerHTML = text.substring(0, i + 1);
+                eidMessage.scrollTop = eidMessage.scrollHeight;
+                setTimeout(function() {
+                    typeWriter(text, i + 1, fnCallback)
+                }, 50);
+            } else if (typeof fnCallback == 'function') {
+                setTimeout(fnCallback, 700);
+            }
+        }
+
+        showButton.addEventListener('click', function() {
+            if (eidMessage.style.display === 'block') {
+                eidMessage.style.display = 'none';
+                showButton.classList.remove('expanded');
+                showButton.textContent = 'Click for a special wish!';
+                buttonExpanded = false;
+                eidMusic.pause(); // Stop the music
+            } else {
+                eidMusic.currentTime = 0; // Reset music to start
+                eidMusic.play(); // Play the music
+                eidMessage.style.display = 'block';
+                eidMessage.innerHTML = '';
+                typeWriter(fullWish, 0, function() {
+                    showButton.classList.add('expanded');
+                    showButton.textContent = 'Hide the wish!';
+                    buttonExpanded = true;
+                });
+            }
+        });
+
+
+        // Fireworks Function
+        function createFirework() {
+            const firework = document.createElement('div');
+            firework.className = 'firework';
+            firework.style.left = `${Math.random() * 100}vw`;
+
+            // Random Explosion Height (Quarter from top)
+            const explosionHeight = Math.random() * 25 + 10; // 10-35vh from the top
+            firework.style.animation = `firework-launch 1s ease-out forwards, firework-explode 0.8s ease-out forwards 1s`;
+            firework.style.transform = `translateY(${explosionHeight}vh)`; //set the y offset.
+
+            // Random Colors
+            const colors = ['yellow', 'red', 'blue', 'lime', 'magenta', 'orange'];
+            const randomColor = colors[Math.floor(Math.random() * colors.length)];
+            firework.style.background = `linear-gradient(to top, transparent, ${randomColor})`;
+
+            document.getElementById('fireworks').appendChild(firework);
+            setTimeout(() => firework.remove(), 1800);
+        }
+
+        // Trigger Fireworks on Page Load
+        setInterval(createFirework, 700);
+
+          // Background Music
+          backgroundMusic.volume = 0.3; // Set volume to 30%
+        backgroundMusic.play(); 
+    </script>
+    </body>
+</html>
